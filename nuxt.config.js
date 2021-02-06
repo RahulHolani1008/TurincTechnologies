@@ -12,8 +12,19 @@ export default {
     ]
   },
 
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.js',
+    exposeConfig: false,
+    config: {}
+  },
+
+  loadingIndicator: '~/components/Loading.vue',
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    "~/assets/CSS/fonts.css",
+    "~/assets/CSS/outline.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
