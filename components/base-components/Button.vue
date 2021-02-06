@@ -1,5 +1,11 @@
 <template>
-  <button :class="classes" class="p-2 select-none">{{ text }}</button>
+  <button
+    :class="classes"
+    class="p-2 select-none"
+    @click.prevent="$emit('click')"
+  >
+    {{ text }}
+  </button>
 </template>
 <script>
 export default {

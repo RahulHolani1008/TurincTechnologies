@@ -7,6 +7,7 @@
     <div class="flex justify-evenly">
       <Button
         text="About us"
+        @click="navigate('about')"
         classes="m-1 outline-none dark:text-white text-gray-900 transition duration-500 transform hover:scale-105 ease-in-out rounded-none"
       />
       <Button
@@ -32,6 +33,11 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    navigate(url) {
+      this.$router.push("/" + url);
+    },
   },
 };
 </script>

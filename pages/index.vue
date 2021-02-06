@@ -45,10 +45,11 @@
         >
           Our ever-growing technology stack
         </h1>
-        <div class="card-container mt-24">
+        <div class="card-container mt-16">
           <div
             class="card bg-white rounded-3xl flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-0"
             v-for="dept in technologies"
+            :class="'mt-' + (dept.id % 3) * 8"
             :key="dept.id"
           >
             <div
@@ -122,85 +123,6 @@
   </div>
 </template>
 <script>
-if (process.browser) {
-  let scrollpos = window.scrollY;
-  let header = document.getElementById("header");
-  let navcontent = document.getElementById("nav-content");
-  let navaction = document.getElementById("navAction");
-  let brandname = document.getElementById("brandname");
-  let toToggle = document.querySelectorAll(".toggleColour");
-
-  document.addEventListener("scroll", function () {
-    /*Apply classes for slide in bar*/
-    scrollpos = window.scrollY;
-
-    if (scrollpos > 10) {
-      header.classList.add("bg-white");
-      navaction.classList.remove("bg-white");
-      navaction.classList.add("gradient");
-      navaction.classList.remove("text-gray-900");
-      navaction.classList.add("text-white");
-      //Use to switch toggleColour colours
-      for (let i = 0; i < toToggle.length; i++) {
-        toToggle[i].classList.add("text-gray-900");
-        toToggle[i].classList.remove("text-white");
-      }
-      header.classList.add("shadow");
-      navcontent.classList.remove("bg-gray-100");
-      navcontent.classList.add("bg-white");
-    } else {
-      header.classList.remove("bg-white");
-      navaction.classList.remove("gradient");
-      navaction.classList.add("bg-white");
-      navaction.classList.remove("text-white");
-      navaction.classList.add("text-gray-900");
-      //Use to switch toggleColour colours
-      for (let i = 0; i < toToggle.length; i++) {
-        toToggle[i].classList.add("text-white");
-        toToggle[i].classList.remove("text-gray-900");
-      }
-
-      header.classList.remove("shadow");
-      navcontent.classList.remove("bg-white");
-      navcontent.classList.add("bg-gray-100");
-    }
-  });
-  /*Toggle dropdown list*/
-  /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
-  let navMenuDiv = document.getElementById("nav-content");
-  let navMenu = document.getElementById("nav-toggle");
-
-  document.onclick = check;
-  function check(e) {
-    let target = (e && e.target) || (event && event.srcElement);
-
-    //Nav Menu
-    if (!checkParent(target, navMenuDiv)) {
-      // click NOT on the menu
-      if (checkParent(target, navMenu)) {
-        // click on the link
-        if (navMenuDiv.classList.contains("hidden")) {
-          navMenuDiv.classList.remove("hidden");
-        } else {
-          navMenuDiv.classList.add("hidden");
-        }
-      } else {
-        // click both outside link and outside menu, hide menu
-        navMenuDiv.classList.add("hidden");
-      }
-    }
-  }
-  function checkParent(t, elm) {
-    while (t.parentNode) {
-      if (t == elm) {
-        return true;
-      }
-      t = t.parentNode;
-    }
-    return false;
-  }
-}
 import lottie from "vue-lottie/src/lottie.vue";
 import * as animationData from "~/assets/Animations/developer-animation.json";
 import Logo from "@/components/Logo";
@@ -215,7 +137,7 @@ export default {
       lottieOptions: { animationData: animationData.default },
       technologies: [
         {
-          id: 1,
+          id: 2,
           name: "UI/UX",
           technologies: [
             "Adobe Photoshop",
@@ -226,7 +148,7 @@ export default {
           ],
         },
         {
-          id: 2,
+          id: 1,
           name: "Front-End",
           technologies: [
             "Javascript",
@@ -267,11 +189,6 @@ export default {
             "Digital Ocean",
           ],
         },
-        // {
-        //   id: 6,
-        //   name: "Testing",
-        //   technologies: [""]
-        // },
       ],
     };
   },
