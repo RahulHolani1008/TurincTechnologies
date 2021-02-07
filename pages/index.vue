@@ -49,7 +49,7 @@
           <div
             class="card bg-white rounded-3xl flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-0"
             v-for="dept in technologies"
-            :class="'mt-' + (dept.id % 3) * 8"
+            :class="'mt-' + (dept.id % 3) * 4"
             :key="dept.id"
           >
             <div
@@ -175,8 +175,16 @@ export default {
         },
         {
           id: 4,
-          name: "Version Control",
-          technologies: ["Git", "GitHub", "BitBucket", "SVN"],
+          name: "Mobile",
+          technologies: [
+            "Swift",
+            "Xamarin",
+            "React Native",
+            "PWA",
+            "Capacitor",
+            "Java",
+            "Kotlin",
+          ],
         },
         {
           id: 5,
